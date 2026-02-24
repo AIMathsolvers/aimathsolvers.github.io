@@ -3,599 +3,906 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Chatbots Hub | MathGPT, ChatGPT, Claude</title>
-  <meta
-    name="description"
-    content="Explore top AI chatbots including MathGPT.today, ChatGPT, and Claude. Compare features, use cases, and links in one place."
-  />
+  <title>MathGPT | Math Learning Platform Guide</title>
+  <meta name="description" content="A clean blog guide to MathGPT — the AI-powered math learning platform with step-by-step solutions, graphing, tutoring, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #0b1020;
-      --bg-2: #121a32;
-      --card: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #eef2ff;
-      --muted: #b8c0e0;
-      --accent: #7c5cff;
-      --accent-2: #2dd4bf;
-      --accent-3: #f59e0b;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --white: #ffffff;
+      --off: #f9f9f9;
+      --border: #e8e8e8;
+      --border-dark: #d0d0d0;
+      --ink: #111111;
+      --body: #333333;
+      --muted: #777777;
+      --light: #aaaaaa;
+      --accent: #111111;
+      --max: 1100px;
+      --content: 680px;
     }
 
-    * {
-      box-sizing: border-box;
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--body);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(124, 92, 255, 0.18), transparent 40%),
-        radial-gradient(circle at 85% 15%, rgba(45, 212, 191, 0.14), transparent 42%),
-        radial-gradient(circle at 50% 90%, rgba(245, 158, 11, 0.10), transparent 45%),
-        linear-gradient(180deg, var(--bg), #090d18);
-      color: var(--text);
-      min-height: 100%;
-    }
+    a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: #555; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    img { max-width: 100%; display: block; }
 
-    .container {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-    }
-
-    .nav {
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(11, 16, 32, 0.55);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 100;
     }
 
-    .nav-inner {
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
-      gap: 16px;
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
+      font-family: "Lora", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
-    .brand-badge {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: var(--shadow);
-      font-size: 18px;
-    }
-
-    .nav-links {
+    nav {
       display: flex;
-      gap: 10px;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
-    .nav-links a {
+    nav a {
+      font-size: 0.88rem;
+      font-weight: 500;
       color: var(--muted);
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
+      text-decoration: none;
+      letter-spacing: 0.01em;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-      border-color: rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
+    nav a:hover { color: var(--ink); }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 80px;
     }
 
+    /* ── Hero ── */
     .hero {
-      padding: 64px 0 28px;
-      text-align: center;
+      border-bottom: 1px solid var(--border);
+      padding: 64px 0 48px;
+      max-width: var(--content);
     }
 
-    .hero-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+    .hero .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-size: 14px;
       margin-bottom: 18px;
     }
 
     .hero h1 {
-      margin: 0 auto 14px;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.05;
-      max-width: 900px;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p {
-      margin: 0 auto;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.12rem);
-      line-height: 1.65;
-    }
-
-    .hero-actions {
-      margin-top: 24px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 12px;
-      padding: 12px 16px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
       font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: 0.2s ease;
-      cursor: pointer;
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #5b7cff);
-      border: none;
-      box-shadow: 0 14px 30px rgba(92, 92, 255, 0.28);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 34px rgba(92, 92, 255, 0.35);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .section {
-      padding: 26px 0 34px;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-size: 1.35rem;
-      margin: 0;
-      letter-spacing: -0.02em;
-    }
-
-    .section-subtitle {
-      margin: 0;
+    .hero .dek {
+      font-size: 1.05rem;
       color: var(--muted);
-      font-size: 0.95rem;
+      max-width: 56ch;
+      line-height: 1.65;
+      margin-bottom: 24px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      position: relative;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.035));
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.22);
-    }
-
-    .card-top {
-      padding: 18px 18px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(255,255,255,0.08), transparent 60%);
-    }
-
-    .card-icon-row {
+    .hero-meta {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--light);
+      font-weight: 500;
+    }
+
+    /* ── Layout ── */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 240px;
+      gap: 80px;
+      padding-top: 56px;
+      align-items: start;
+    }
+
+    /* ── Main column ── */
+    .main-col {
+      display: grid;
+      gap: 64px;
+    }
+
+    /* ── Article ── */
+    .article {}
+
+    .article-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
       margin-bottom: 12px;
-      gap: 8px;
     }
 
-    .icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
+    .article h2 {
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
     }
 
-    .icon.mathgpt {
-      background: linear-gradient(135deg, #f97316, #fb7185);
-    }
-
-    .icon.chatgpt {
-      background: linear-gradient(135deg, #10b981, #34d399);
-    }
-
-    .icon.claude {
-      background: linear-gradient(135deg, #f59e0b, #ef4444);
-    }
-
-    .tag {
-      font-size: 12px;
+    .article .subhead {
+      font-size: 1rem;
       color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      padding: 6px 10px;
-      border-radius: 999px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--light);
+      font-weight: 500;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    /* ── Body copy ── */
+    .body-copy p {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--body);
+    }
+
+    .body-copy p.lede {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.08rem;
+      color: #222;
+    }
+
+    .pull-quote {
+      border-left: 2px solid var(--ink);
+      padding: 4px 0 4px 20px;
+      margin: 28px 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    /* ── Section ── */
+    .section { margin-top: 40px; }
+
+    .section h3 {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+
+    .section-note {
+      font-size: 0.85rem;
+      color: var(--light);
+      margin-bottom: 16px;
+    }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+      margin-top: 4px;
+    }
+
+    .feature-grid li {
+      background: var(--white);
+      padding: 16px 18px;
+    }
+
+    .feature-grid strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .feature-grid span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Steps ── */
+    .steps {
+      list-style: none;
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--border);
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .steps li:last-child { border-bottom: none; }
+
+    .steps li::before {
+      content: counter(step);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--light);
+      padding-top: 2px;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .steps strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .steps span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Resource list ── */
+    .resource-list {
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .resource-card {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resource-card:last-child { border-bottom: none; }
+
+    .resource-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .resource-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .path-tag {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--light);
+    }
+
+    .resource-card a {
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 4px;
+      color: #555;
+    }
+
+    .resource-card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── Info panels ── */
+    .info-panels {
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .info-panel {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-panel:last-child { border-bottom: none; }
+
+    .info-panel h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .info-panel p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Short article cards ── */
+    .short-articles {
+      display: grid;
+      gap: 40px;
+    }
+
+    .short-article {}
+
+    .short-article .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .short-article h2 {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .short-article p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .short-article a.cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-dark);
+      padding-bottom: 1px;
+    }
+
+    .short-article a.cta:hover { border-color: var(--ink); }
+
+    /* ── Comparison ── */
+    .compare-section {}
+
+    .compare-section h2 {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .compare-table th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--ink);
+      padding: 10px 16px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .compare-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--body);
+      vertical-align: top;
+    }
+
+    .compare-table td:first-child {
+      font-weight: 600;
+      color: var(--ink);
       white-space: nowrap;
     }
 
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-    }
+    .compare-table tr:last-child td { border-bottom: none; }
 
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 0.95rem;
-    }
-
-    .card-body {
-      padding: 16px 18px 18px;
-    }
-
-    .features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
+    /* ── Sidebar ── */
+    .rail {
+      position: sticky;
+      top: 72px;
       display: grid;
-      gap: 10px;
+      gap: 40px;
     }
 
-    .features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: var(--text);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    .features li span {
-      color: var(--accent-2);
-      font-weight: 700;
-      line-height: 1;
-      margin-top: 2px;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .card-actions a {
-      flex: 1 1 auto;
-      text-align: center;
-      padding: 10px 12px;
-      border-radius: 10px;
+    .rail-section h3 {
+      font-size: 0.75rem;
       font-weight: 600;
-      font-size: 0.92rem;
-      border: 1px solid rgba(255,255,255,0.13);
-      background: rgba(255,255,255,0.03);
-      transition: 0.2s ease;
-    }
-
-    .card-actions a:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.2);
-    }
-
-    .card-actions a.primary-link {
-      background: linear-gradient(135deg, rgba(124,92,255,0.22), rgba(45,212,191,0.18));
-      border-color: rgba(124,92,255,0.28);
-    }
-
-    .compare {
-      margin-top: 18px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.1);
-      overflow: hidden;
-      background: rgba(255,255,255,0.03);
-      box-shadow: var(--shadow);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 14px 14px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      vertical-align: top;
-      font-size: 0.95rem;
-    }
-
-    th {
-      color: var(--text);
-      background: rgba(255,255,255,0.03);
-      font-weight: 700;
-    }
-
-    td {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
 
-    tr:last-child td {
-      border-bottom: none;
+    .toc-links {
+      display: grid;
+      gap: 6px;
     }
 
-    .footer {
-      padding: 26px 0 50px;
+    .toc-links a {
+      font-size: 0.85rem;
       color: var(--muted);
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .toc-links a:hover { color: var(--ink); }
+
+    .rail-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .rail-list li {}
+
+    .rail-list strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .rail-list span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .rail-note {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
       text-align: center;
-      font-size: 0.92rem;
+      font-size: 0.82rem;
+      color: var(--light);
     }
 
-    .footer a {
-      color: var(--text);
-      border-bottom: 1px dotted rgba(255,255,255,0.45);
-    }
-
-    @media (max-width: 960px) {
-      .cards {
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .layout {
         grid-template-columns: 1fr;
+        gap: 48px;
       }
 
-      .section-header {
-        align-items: start;
-        flex-direction: column;
+      .rail {
+        position: static;
+        top: auto;
+        border-top: 1px solid var(--border);
+        padding-top: 40px;
       }
+    }
 
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
-
-      .nav-links a {
-        padding: 6px 10px;
-      }
-
-      th, td {
-        font-size: 0.9rem;
-        padding: 12px 10px;
-      }
+    @media (max-width: 640px) {
+      .page { padding: 0 16px 60px; }
+      .header-inner { padding: 0 16px; }
+      .hero { padding: 40px 0 36px; }
+      nav { display: none; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .steps li { grid-template-columns: 28px 1fr; }
+      .compare-table th:last-child,
+      .compare-table td:last-child { display: none; }
     }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="brand-badge">🤖</div>
-        <span>AI Chatbots Hub</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#chatbots">Chatbots</a>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="#top" id="top">MathGPT</a>
+      <nav aria-label="Primary">
+        <a href="#mathgpt">Overview</a>
+        <a href="#mathgpt-features">Features</a>
+        <a href="#mathgpt-pages">Links</a>
         <a href="#compare">Compare</a>
-        <a href="#about">About</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-chip">✨ Explore useful AI chatbots in one place</div>
-      <h1>Discover MathGPT.today, ChatGPT, and Claude</h1>
-      <p>
-        A simple showcase page for three popular AI chatbot experiences.
-        Great for studying, homework help, writing, brainstorming, and everyday productivity.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#chatbots">View Chatbots</a>
-        <a class="btn btn-secondary" href="#compare">Compare Features</a>
-      </div>
-    </section>
+  <div class="page">
 
-    <section id="chatbots" class="section container">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Featured Chatbots</h2>
-          <p class="section-subtitle">Three AI tools for different needs and workflows</p>
-        </div>
+    <div class="hero">
+      <div class="label">Featured Guide &mdash; Updated February 24, 2026</div>
+      <h1>MathGPT</h1>
+      <p class="dek">A guide to MathGPT — an AI-powered math learning platform built around step-by-step solutions, visual tools, and genuine understanding.</p>
+      <div class="hero-meta">
+        <span>Step-by-step learning</span>
+        <span>Web + Mobile</span>
+        <span>Chrome Extension</span>
+        <span>Responsive layout</span>
       </div>
+    </div>
 
-      <div class="cards">
-        <!-- MathGPT.today -->
-        <article class="card">
-          <div class="card-top">
-            <div class="card-icon-row">
-              <div class="icon mathgpt">∑</div>
-              <div class="tag">Math Learning</div>
-            </div>
-            <h3>MathGPT.today</h3>
-            <p>
-              An AI-powered math learning tool focused on solving problems and explaining steps clearly for students.
-            </p>
+    <div class="layout">
+
+      <main class="main-col">
+
+        <img src="1.png">
+        <!-- ── MathGPT Article ── -->
+        <article id="mathgpt">
+          <div class="article-label">Math Education Tool</div>
+          <h2>MathGPT</h2>
+          <p class="subhead">A math solver and study platform focused on step-by-step explanations, practice support, and tools that help students understand how solutions are built.</p>
+          <div class="article-meta">
+            <span>Step-by-step learning</span>
+            <span>Web + Mobile</span>
+            <span>Chrome Extension</span>
           </div>
-          <div class="card-body">
-            <ul class="features">
-              <li><span>✓</span> Step by step solutions for math problems</li>
-              <li><span>✓</span> Helpful for algebra, geometry, calculus, and more</li>
-              <li><span>✓</span> Practice and learning focused experience</li>
-            </ul>
-            <div class="card-actions">
-              <a class="primary-link" href="https://mathgpt.today" target="_blank" rel="noopener noreferrer">Visit MathGPT.today</a>
+
+          <div class="body-copy">
+            <p class="lede">MathGPT is made for students who want to learn the method behind a problem, not just copy the final answer. It supports algebra, geometry, trigonometry, calculus, statistics, and many STEM word problems.</p>
+
+            <p>You can type a question, upload a photo, or paste a screenshot, and MathGPT gives a worked explanation you can follow line by line. That makes it useful for homework help, practice, checking your work, and reviewing concepts that were unclear in class.</p>
+
+            <p>The platform goes beyond a basic solver. It includes tutoring support, graphing tools, flashcards, quizzes, a question library, video-style explanations, and a video generation feature for more visual learning. It also includes Kids Mode with simpler language and a Games section for more engaging practice.</p>
+
+            <p>It works on desktop and mobile, and the Chrome Extension helps students solve and study without leaving the page they are already using.</p>
+
+            <div class="pull-quote">Best fit: students who want worked solutions, guided learning, and extra practice tools in one platform.</div>
+
+            <div class="section" id="mathgpt-features">
+              <h3>Key Features</h3>
+              <p class="section-note">Eight core capabilities at a glance.</p>
+              <ul class="feature-grid">
+                <li>
+                  <strong>Step-by-step solutions</strong>
+                  <span>Explains the method clearly instead of only showing the final answer.</span>
+                </li>
+                <li>
+                  <strong>Multiple input options</strong>
+                  <span>Type a problem, upload an image, or paste a screenshot.</span>
+                </li>
+                <li>
+                  <strong>Built-in tutoring support</strong>
+                  <span>Guided learning experience for stronger understanding and practice.</span>
+                </li>
+                <li>
+                  <strong>Enhanced graphing tools</strong>
+                  <span>Visualize equations, functions, and math relationships more clearly.</span>
+                </li>
+                <li>
+                  <strong>Practice tools</strong>
+                  <span>Flashcards, quizzes, and a question library for review and skill building.</span>
+                </li>
+                <li>
+                  <strong>Video explanations</strong>
+                  <span>Video-style help and video generation for visual learners.</span>
+                </li>
+                <li>
+                  <strong>Kids Mode</strong>
+                  <span>Simpler language and a more approachable experience for younger learners.</span>
+                </li>
+                <li>
+                  <strong>Chrome Extension</strong>
+                  <span>Solve math and study without leaving your current page.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="section" id="mathgpt-how">
+              <h3>How It Works</h3>
+              <p class="section-note">A simple six-step workflow.</p>
+              <ol class="steps">
+                <li>
+                  <div>
+                    <strong>Enter a math problem</strong>
+                    <span>Type it, upload an image, or paste a screenshot.</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>MathGPT reads the problem</strong>
+                    <span>Generates a step-by-step solution with a worked explanation.</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Follow the explanation</strong>
+                    <span>Learn the method and see how each step connects.</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Use extra learning tools</strong>
+                    <span>Reinforce understanding with tutoring, graphing, flashcards, quizzes, and practice questions.</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Learn visually</strong>
+                    <span>Use video-style explanations or video generation for more visual guidance.</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Study anywhere</strong>
+                    <span>Use the Chrome Extension to solve without switching pages.</span>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div class="section" id="mathgpt-pages">
+              <h3>MathGPT Pages and Links</h3>
+              <p class="section-note">Direct links to every section of the platform.</p>
+              <div class="resource-list">
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Main Site</span>
+                    <span class="path-tag">mathgpt.today</span>
+                  </div>
+                  <a href="https://mathgpt.today" target="_blank" rel="noopener noreferrer">https://mathgpt.today</a>
+                  <p>Main page for solving math and exploring MathGPT tools.</p>
+                </div>
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Video</span>
+                    <span class="path-tag">/video</span>
+                  </div>
+                  <a href="https://mathgpt.today/video" target="_blank" rel="noopener noreferrer">https://mathgpt.today/video</a>
+                  <p>Video-style explanations and visual learning support.</p>
+                </div>
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Graphing</span>
+                    <span class="path-tag">/graphing</span>
+                  </div>
+                  <a href="https://mathgpt.today/graphing" target="_blank" rel="noopener noreferrer">https://mathgpt.today/graphing</a>
+                  <p>Graphing tools for equations, functions, and math relationships.</p>
+                </div>
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Flashcards</span>
+                    <span class="path-tag">/flashcard</span>
+                  </div>
+                  <a href="https://mathgpt.today/flashcard" target="_blank" rel="noopener noreferrer">https://mathgpt.today/flashcard</a>
+                  <p>Review concepts and build recall through flashcards.</p>
+                </div>
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Games</span>
+                    <span class="path-tag">/games</span>
+                  </div>
+                  <a href="https://mathgpt.today/games" target="_blank" rel="noopener noreferrer">https://mathgpt.today/games</a>
+                  <p>More engaging practice with game-based learning sections.</p>
+                </div>
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Kids Mode</span>
+                    <span class="path-tag">/kids</span>
+                  </div>
+                  <a href="https://mathgpt.today/kids" target="_blank" rel="noopener noreferrer">https://mathgpt.today/kids</a>
+                  <p>Simpler language and a more beginner-friendly learning experience.</p>
+                </div>
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Tutor Mode</span>
+                    <span class="path-tag">/tutoring</span>
+                  </div>
+                  <a href="https://mathgpt.today/tutoring" target="_blank" rel="noopener noreferrer">https://mathgpt.today/tutoring</a>
+                  <p>Guided tutoring support for practice and understanding.</p>
+                </div>
+                <div class="resource-card">
+                  <div class="resource-row">
+                    <span class="resource-title">Chrome Extension</span>
+                    <span class="path-tag">/extension</span>
+                  </div>
+                  <a href="https://mathgpt.today/extension" target="_blank" rel="noopener noreferrer">https://mathgpt.today/extension</a>
+                  <p>Install and use MathGPT while staying on your current page.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="section" id="mathgpt-reqs">
+              <h3>System Requirements and Plans</h3>
+              <p class="section-note">What you need to get started.</p>
+              <div class="info-panels">
+                <div class="info-panel">
+                  <h4>Compatible Devices and Platforms</h4>
+                  <p>Web-based platform with no installation required for the main website. Works on desktop and mobile browsers. Chrome-based browsers are supported for the Chrome Extension.</p>
+                </div>
+                <div class="info-panel">
+                  <h4>Free Version</h4>
+                  <p>Access to core math solving and learning tools with limited credits.</p>
+                </div>
+                <div class="info-panel">
+                  <h4>Premium Version</h4>
+                  <p>Unlimited credits and broader access to features including tutoring, graphing, flashcards, quizzes, video generation, Kids Mode, and additional practice tools.</p>
+                </div>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- ChatGPT -->
-        <article class="card">
-          <div class="card-top">
-            <div class="card-icon-row">
-              <div class="icon chatgpt">◎</div>
-              <div class="tag">General AI Assistant</div>
-            </div>
-            <h3>ChatGPT</h3>
-            <p>
-              A versatile AI chatbot for writing, coding, brainstorming, research support, and general Q and A tasks.
-            </p>
-          </div>
-          <div class="card-body">
-            <ul class="features">
-              <li><span>✓</span> Great for writing and idea generation</li>
-              <li><span>✓</span> Coding help and debugging support</li>
-              <li><span>✓</span> Flexible assistant for many topics</li>
-            </ul>
-            <div class="card-actions">
-              <a class="primary-link" href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">Open ChatGPT</a>
-            </div>
-          </div>
-        </article>
 
-        <!-- Claude -->
-        <article class="card">
-          <div class="card-top">
-            <div class="card-icon-row">
-              <div class="icon claude">✦</div>
-              <div class="tag">AI Assistant</div>
-            </div>
-            <h3>Claude</h3>
-            <p>
-              An AI assistant often used for writing, analysis, summarization, and long-form conversations.
-            </p>
-          </div>
-          <div class="card-body">
-            <ul class="features">
-              <li><span>✓</span> Strong long-form writing support</li>
-              <li><span>✓</span> Useful for summarizing content</li>
-              <li><span>✓</span> Conversational problem solving</li>
-            </ul>
-            <div class="card-actions">
-              <a class="primary-link" href="https://claude.ai" target="_blank" rel="noopener noreferrer">Open Claude</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="compare" class="section container">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Quick Comparison</h2>
-          <p class="section-subtitle">Simple overview to help visitors choose the right tool</p>
+        <!-- ── Comparison ── -->
+        <div class="compare-section" id="compare">
+          <h2>MathGPT vs. Traditional Solvers</h2>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>MathGPT</th>
+                <th>Traditional Solvers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Solution style</td>
+                <td>Step-by-step with explanations for each line</td>
+                <td>Final answer only, or minimal working shown</td>
+              </tr>
+              <tr>
+                <td>Input methods</td>
+                <td>Type, photo upload, or screenshot</td>
+                <td>Usually typed input only</td>
+              </tr>
+              <tr>
+                <td>Learning support</td>
+                <td>Tutoring mode, flashcards, quizzes, and practice questions</td>
+                <td>None — solvers are answer-focused, not learning-focused</td>
+              </tr>
+              <tr>
+                <td>Visual tools</td>
+                <td>Graphing, video explanations, and video generation</td>
+                <td>Basic or no graphing; rarely includes visual explanation</td>
+              </tr>
+              <tr>
+                <td>Younger learners</td>
+                <td>Kids Mode with simpler language and a gentler experience</td>
+                <td>No age-adapted interface</td>
+              </tr>
+              <tr>
+                <td>Browser integration</td>
+                <td>Chrome Extension — solve without leaving your current page</td>
+                <td>Must switch tabs or open a separate app</td>
+              </tr>
+              <tr>
+                <td>Goal</td>
+                <td>Build understanding of the method, not just the answer</td>
+                <td>Produce the correct answer as quickly as possible</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
 
-      <div class="compare">
-        <table>
-          <thead>
-            <tr>
-              <th>Tool</th>
-              <th>Best For</th>
-              <th>Strength</th>
-              <th>Website</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong style="color:#fff;">MathGPT.today</strong></td>
-              <td>Math homework, learning, and practice</td>
-              <td>Math-focused step by step guidance</td>
-              <td><a href="https://mathgpt.today" target="_blank" rel="noopener noreferrer">mathgpt.today</a></td>
-            </tr>
-            <tr>
-              <td><strong style="color:#fff;">ChatGPT</strong></td>
-              <td>General tasks, writing, coding, brainstorming</td>
-              <td>Wide range of use cases</td>
-              <td><a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">chatgpt.com</a></td>
-            </tr>
-            <tr>
-              <td><strong style="color:#fff;">Claude</strong></td>
-              <td>Writing, summaries, analysis</td>
-              <td>Long-form conversation and text work</td>
-              <td><a href="https://claude.ai" target="_blank" rel="noopener noreferrer">claude.ai</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      </main>
 
-    <section id="about" class="section container">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">About This Page</h2>
-          <p class="section-subtitle">
-            A lightweight GitHub Pages website built with plain HTML and CSS
-          </p>
+      <!-- ── Sidebar ── -->
+      <aside class="rail" aria-label="Sidebar">
+
+        <div class="rail-section">
+          <h3>On this page</h3>
+          <div class="toc-links">
+            <a href="#mathgpt">MathGPT overview</a>
+            <a href="#mathgpt-features">Key features</a>
+            <a href="#mathgpt-how">How it works</a>
+            <a href="#mathgpt-pages">MathGPT links</a>
+            <a href="#mathgpt-reqs">Plans and requirements</a>
+            <a href="#compare">vs. Traditional solvers</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card" style="padding: 18px;">
-        <p style="margin:0; color: var(--muted); line-height:1.7;">
-          This page is designed to be easy to upload to GitHub Pages. You can edit the titles,
-          text, links, colors, and sections anytime. If you want, you can also split the CSS into a
-          separate <code style="color:#fff;">style.css</code> file later.
-        </p>
-      </div>
-    </section>
-  </main>
+        <div class="rail-section">
+          <h3>At a glance</h3>
+          <ul class="rail-list">
+            <li>
+              <strong>Step-by-step solutions</strong>
+              <span>Learn the method, not just the answer.</span>
+            </li>
+            <li>
+              <strong>Practice tools</strong>
+              <span>Flashcards, quizzes, tutoring, and graphing.</span>
+            </li>
+            <li>
+              <strong>Works anywhere</strong>
+              <span>Web, mobile, and Chrome Extension.</span>
+            </li>
+          </ul>
+        </div>
 
-  <footer class="footer container">
-    Built for GitHub Pages • Customize the content and links anytime
+        <div class="rail-section">
+          <h3>About this page</h3>
+          <p class="rail-note">Static HTML + CSS. No frameworks or build tools. GitHub Pages friendly. Edit content directly in <code>index.html</code>.</p>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <footer>
+    2026 &copy; MathGPT Guide. All rights reserved.
   </footer>
+
 </body>
 </html>
